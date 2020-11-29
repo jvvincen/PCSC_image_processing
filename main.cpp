@@ -1,16 +1,28 @@
 #include "helper.hpp"
 
+
 using namespace std;
 
 
 int main()
 {
-  std::string image_path = "../../cla.jpg";
 
-cv::Mat clarisse = load_image(image_path);
+    string image_path = "../../cla.jpg";
 
-//  display_im(clarisse);
-  std::vector<std::vector<uchar>> vectorC = channels_to_vectors (clarisse);
-  std::cout << vectorC[0][10] << std::endl;
+    cv::Mat clarisse = load_image(image_path);
+
+    //display_im(clarisse);
+    vector<vector<vector<int>>> vect = cv_to_vector (clarisse);
+    for (int i=0;i<vect.size();i++){
+        for(int j=0;j<vect[i].size();j++){
+            for(int k=0;k<vect[i][j].size();k++){
+                cout << vect[i][j][k] << " ";
+            }
+            cout << endl;
+        }
+
+    }
+
 
 }
+
