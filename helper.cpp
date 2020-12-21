@@ -29,10 +29,8 @@ std::vector<uchar> cv_to_vector(Mat image)
 
   if (image.isContinuous()) {
     //array.assign(image.datastart, image.dataend); // <- has problems for sub-imagerix like image = big_image.row(i)
-    std::cout << "coucou1" << '\n';
     array.assign(image.data, image.data + image.total()*image.channels());
   } else {
-      std::cout << "COUCOU" << '\n';
     for (int i = 0; i < image.rows; ++i) {
       array.insert(array.end(), image.ptr<uchar>(i), image.ptr<uchar>(i)+image.cols*image.channels());
     }
@@ -59,6 +57,8 @@ std::vector<Mat> split_channels(Mat image)
 
 }
 
+
+
 std::vector<std::vector<uchar>> channels_to_vectors(Mat image)
 {
 
@@ -71,4 +71,71 @@ std::vector<std::vector<uchar>> channels_to_vectors(Mat image)
 
   return im_vec;
 
+}
+
+
+cv::Mat vec_to_cv(std::vector<uchar> vec, int rows, int cols){
+
+  std::cout << "conforme" << '\n';
+  Mat img = Mat(rows, cols, CV_8UC1); // initialize matrix of uchar of 1-channel where you will store vec data
+
+  /*
+  Mat g = Mat(rows, cols, CV_8UC1);
+  Mat b = Mat(rows, cols, CV_8UC1);
+  */
+  //copy vector to mat
+  memcpy(img.data, vec.data(), vec.size()*sizeof(uchar)); // change uchar to any type of data values that you want to use instead
+
+  /*
+  memcpy(g.data, vec[1].data(), vec[1].size()*sizeof(uchar));
+  memcpy(b.data, vec[2].data(), vec[2].size()*sizeof(uchar));
+
+
+  std::vector<Mat> channels;
+  channels.push_back(r);
+  channels.push_back(g);
+  channels.push_back(b);
+
+  Mat img_col;
+  cv::merge(channels, img_col);
+
+  */
+
+  return img;
+
+}
+
+std::vector<int> interval(int num_in)
+{
+
+  std::vector<double> linspaced;
+
+  int start = 0;
+  int end = 255;
+  int num = num_in;
+
+  if (num == 0) { return linspaced; }
+  if (num == 1)
+    {
+      linspaced.push_back(start);
+      return linspaced;
+    }
+
+  int delta = (end - start) / (num - 1);
+
+  for(int i=0; i < num-1; ++i)
+    {
+      linspaced.push_back(start + delta * i);
+    }
+  linspaced.push_back(end); // I want to ensure that start and end
+                            // are exactly the same as the input
+  return std::vector<double> doubleVec(linspaced.begin(), linspaced.end());
+}
+
+void print_vector(std::vector<int> vec)
+{
+  std::cout << "size: " << vec.size() << std::endl;
+  for (int d : vec)
+    std::cout << d << " ";
+  std::cout << std::endl;
 }

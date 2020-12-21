@@ -19,4 +19,10 @@ std::vector<Mat> split_channels(cv::Mat image);
 
 std::vector<std::vector<uchar>> channels_to_vectors(cv::Mat image);
 
+cv::Mat vec_to_cv(std::vector<uchar> vec, int rows, int cols);
+
+std::vector<int> interval(int num_in);
+
+void print_vector(std::vector<int> vec);
+
 #endif
