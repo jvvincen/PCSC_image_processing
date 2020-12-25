@@ -1,4 +1,7 @@
 #include <iostream>
+#include <fstream>
+#include <iterator>
+#include <string>
 #include "ImageClass.hpp"
 
 
@@ -20,10 +23,22 @@ int ImageClass::get_intensity(int x, int y)
 }
 
 
-void ImageClass::histogram(int nb_bins)
+void ImageClass::histogram()
 {
-  std::vector<int> bins(nb_bins, 0);
+
+  std::vector<int> bins(255, 0);
+
   for (int item : pixels) {
-    //std::cout << item << " - ";
+    bins[item] += 1;
  }
+
+
+  std::ofstream histogram("../histogram.txt");
+  std::ostream_iterator<int> output_iterator(histogram, ",");
+  std::copy(bins.begin(), bins.end(), output_iterator);
+
+  histogram.close();
+
+
+  system("python ../plot_histogram.py");
 }

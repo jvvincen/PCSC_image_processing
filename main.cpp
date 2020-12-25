@@ -28,7 +28,9 @@ int main()
   ImageClass first_image(rows, cols, clarisse_vec);
 //std::cout << first_image.get_intensity(100, 100) << '\n';
   //first_image.histogram();
-  print_vector(interval(100));
+
+  first_image.histogram();
+
   display_im(vec_to_cv(first_image.get_pixels(), first_image.get_nrows(),
                         first_image.get_ncol()));
 

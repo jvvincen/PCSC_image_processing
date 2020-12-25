@@ -16,7 +16,7 @@ int get_intensity(int x, int y);
 
 std::vector<u_char> get_pixels();
 
-void histogram(int nb_bins);
+void histogram();
 
 private:
   int rows;

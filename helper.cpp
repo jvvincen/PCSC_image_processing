@@ -104,38 +104,3 @@ cv::Mat vec_to_cv(std::vector<uchar> vec, int rows, int cols){
   return img;
 
 }
-
-std::vector<int> interval(int num_in)
-{
-
-  std::vector<double> linspaced;
-
-  int start = 0;
-  int end = 255;
-  int num = num_in;
-
-  if (num == 0) { return linspaced; }
-  if (num == 1)
-    {
-      linspaced.push_back(start);
-      return linspaced;
-    }
-
-  int delta = (end - start) / (num - 1);
-
-  for(int i=0; i < num-1; ++i)
-    {
-      linspaced.push_back(start + delta * i);
-    }
-  linspaced.push_back(end); // I want to ensure that start and end
-                            // are exactly the same as the input
-  return std::vector<double> doubleVec(linspaced.begin(), linspaced.end());
-}
-
-void print_vector(std::vector<int> vec)
-{
-  std::cout << "size: " << vec.size() << std::endl;
-  for (int d : vec)
-    std::cout << d << " ";
-  std::cout << std::endl;
-}
