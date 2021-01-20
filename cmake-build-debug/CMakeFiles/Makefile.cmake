@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
   "../CMakeLists.txt"
+  "../Doxyfile.in"
   "CMakeFiles/3.17.3/CMakeCCompiler.cmake"
   "CMakeFiles/3.17.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.17.3/CMakeSystem.cmake"
@@ -26,6 +27,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/snap/clion/137/bin/cmake/linux/share/cmake-3.17/Modules/Compiler/GNU-C.cmake"
   "/snap/clion/137/bin/cmake/linux/share/cmake-3.17/Modules/Compiler/GNU-CXX.cmake"
   "/snap/clion/137/bin/cmake/linux/share/cmake-3.17/Modules/Compiler/GNU.cmake"
+  "/snap/clion/137/bin/cmake/linux/share/cmake-3.17/Modules/FindDoxygen.cmake"
   "/snap/clion/137/bin/cmake/linux/share/cmake-3.17/Modules/FindPackageHandleStandardArgs.cmake"
   "/snap/clion/137/bin/cmake/linux/share/cmake-3.17/Modules/FindPackageMessage.cmake"
   "/snap/clion/137/bin/cmake/linux/share/cmake-3.17/Modules/Internal/CMakeCheckCompilerFlag.cmake"
@@ -49,10 +51,12 @@ set(CMAKE_MAKEFILE_OUTPUTS
 
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
+  "Doxyfile"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/Projet_PCSC_final.dir/DependInfo.cmake"
+  "CMakeFiles/doc.dir/DependInfo.cmake"
   )

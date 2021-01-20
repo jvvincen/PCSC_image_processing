@@ -36,6 +36,7 @@ CMakeFiles/Projet_PCSC_final.dir/filter.cpp.o: /usr/local/include/opencv4/opencv
 CMakeFiles/Projet_PCSC_final.dir/filter.cpp.o: /usr/local/include/opencv4/opencv2/core/vsx_utils.hpp
 CMakeFiles/Projet_PCSC_final.dir/filter.cpp.o: /usr/local/include/opencv4/opencv2/highgui.hpp
 CMakeFiles/Projet_PCSC_final.dir/filter.cpp.o: /usr/local/include/opencv4/opencv2/imgcodecs.hpp
+CMakeFiles/Projet_PCSC_final.dir/filter.cpp.o: /usr/local/include/opencv4/opencv2/imgproc.hpp
 CMakeFiles/Projet_PCSC_final.dir/filter.cpp.o: /usr/local/include/opencv4/opencv2/opencv_modules.hpp
 CMakeFiles/Projet_PCSC_final.dir/filter.cpp.o: /usr/local/include/opencv4/opencv2/videoio.hpp
 
@@ -73,6 +74,7 @@ CMakeFiles/Projet_PCSC_final.dir/fourier.cpp.o: /usr/local/include/opencv4/openc
 CMakeFiles/Projet_PCSC_final.dir/fourier.cpp.o: /usr/local/include/opencv4/opencv2/core/vsx_utils.hpp
 CMakeFiles/Projet_PCSC_final.dir/fourier.cpp.o: /usr/local/include/opencv4/opencv2/highgui.hpp
 CMakeFiles/Projet_PCSC_final.dir/fourier.cpp.o: /usr/local/include/opencv4/opencv2/imgcodecs.hpp
+CMakeFiles/Projet_PCSC_final.dir/fourier.cpp.o: /usr/local/include/opencv4/opencv2/imgproc.hpp
 CMakeFiles/Projet_PCSC_final.dir/fourier.cpp.o: /usr/local/include/opencv4/opencv2/opencv_modules.hpp
 CMakeFiles/Projet_PCSC_final.dir/fourier.cpp.o: /usr/local/include/opencv4/opencv2/videoio.hpp
 
@@ -109,6 +111,7 @@ CMakeFiles/Projet_PCSC_final.dir/helper.cpp.o: /usr/local/include/opencv4/opencv
 CMakeFiles/Projet_PCSC_final.dir/helper.cpp.o: /usr/local/include/opencv4/opencv2/core/vsx_utils.hpp
 CMakeFiles/Projet_PCSC_final.dir/helper.cpp.o: /usr/local/include/opencv4/opencv2/highgui.hpp
 CMakeFiles/Projet_PCSC_final.dir/helper.cpp.o: /usr/local/include/opencv4/opencv2/imgcodecs.hpp
+CMakeFiles/Projet_PCSC_final.dir/helper.cpp.o: /usr/local/include/opencv4/opencv2/imgproc.hpp
 CMakeFiles/Projet_PCSC_final.dir/helper.cpp.o: /usr/local/include/opencv4/opencv2/opencv_modules.hpp
 CMakeFiles/Projet_PCSC_final.dir/helper.cpp.o: /usr/local/include/opencv4/opencv2/videoio.hpp
 
@@ -148,6 +151,7 @@ CMakeFiles/Projet_PCSC_final.dir/image.cpp.o: /usr/local/include/opencv4/opencv2
 CMakeFiles/Projet_PCSC_final.dir/image.cpp.o: /usr/local/include/opencv4/opencv2/core/vsx_utils.hpp
 CMakeFiles/Projet_PCSC_final.dir/image.cpp.o: /usr/local/include/opencv4/opencv2/highgui.hpp
 CMakeFiles/Projet_PCSC_final.dir/image.cpp.o: /usr/local/include/opencv4/opencv2/imgcodecs.hpp
+CMakeFiles/Projet_PCSC_final.dir/image.cpp.o: /usr/local/include/opencv4/opencv2/imgproc.hpp
 CMakeFiles/Projet_PCSC_final.dir/image.cpp.o: /usr/local/include/opencv4/opencv2/opencv_modules.hpp
 CMakeFiles/Projet_PCSC_final.dir/image.cpp.o: /usr/local/include/opencv4/opencv2/videoio.hpp
 
@@ -187,6 +191,7 @@ CMakeFiles/Projet_PCSC_final.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/
 CMakeFiles/Projet_PCSC_final.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/core/vsx_utils.hpp
 CMakeFiles/Projet_PCSC_final.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/highgui.hpp
 CMakeFiles/Projet_PCSC_final.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/imgcodecs.hpp
+CMakeFiles/Projet_PCSC_final.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/imgproc.hpp
 CMakeFiles/Projet_PCSC_final.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/opencv_modules.hpp
 CMakeFiles/Projet_PCSC_final.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/videoio.hpp
 

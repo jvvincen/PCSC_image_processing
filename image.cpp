@@ -66,8 +66,8 @@ void image::display_fourier(cv::Mat image, string title) {
 
 }
 
-// Calculate and draw inverse fft with filter applied
-void image::display_blur(cv::Mat image, double divided_radius, int filter, double radius2) {
+// Calculate and draw inverse fft with pass applied
+void image::display_blur(cv::Mat image, double radius1, int pass, double radius2) {
     int H = image.rows, W = image.cols, c = 3;
     double *fRe = new double[H * W * c], *fIm = new double[H * W * c], *FRe = new double[H * W * c], *FIm = new double[
     H * W * c];
@@ -78,9 +78,9 @@ void image::display_blur(cv::Mat image, double divided_radius, int filter, doubl
     fourier::FFT2D(W, H, fRe, fIm, FRe, FIm);
     delete[] fRe;
     delete[] fIm;
-    FReBlur = filter::blur(FRe, divided_radius, H, W, filter, radius2);
+    FReBlur = filter::blur(FRe, radius1, H, W, pass, radius2);
     delete[] FRe;
-    FImBlur = filter::blur(FIm, divided_radius, H, W, filter, radius2);
+    FImBlur = filter::blur(FIm, radius1, H, W, pass, radius2);
     delete[] FIm;
     fourier::FFT2D(W, H, FReBlur, FImBlur, fReBlur, fImBlur, true);
     delete[] fImBlur;
@@ -91,7 +91,7 @@ void image::display_blur(cv::Mat image, double divided_radius, int filter, doubl
     cv::Mat blur_retransformed_re = fourier::draw(W, H, fReBlur, false);
     delete[] fReBlur;
     string title = "Blurred with a radius divided by ";
-    title.append(to_string(divided_radius)).append(" - (Real, Imaginary, Re-transformed)");
+    title.append(to_string(radius1)).append(" - (Real, Imaginary, Re-transformed)");
     display_real_im_amp(blur_transformed_re, blur_transformed_im, blur_retransformed_re, title);
     blur_transformed_re.release();
     blur_transformed_im.release();

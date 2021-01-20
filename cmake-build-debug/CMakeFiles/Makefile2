@@ -84,6 +84,7 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles/Projet_PCSC_final.dir/clean
+clean: CMakeFiles/doc.dir/clean
 
 .PHONY : clean
 
@@ -113,6 +114,33 @@ Projet_PCSC_final: CMakeFiles/Projet_PCSC_final.dir/rule
 CMakeFiles/Projet_PCSC_final.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Projet_PCSC_final.dir/build.make CMakeFiles/Projet_PCSC_final.dir/clean
 .PHONY : CMakeFiles/Projet_PCSC_final.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/doc.dir
+
+# All Build rule for target.
+CMakeFiles/doc.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doc.dir/build.make CMakeFiles/doc.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doc.dir/build.make CMakeFiles/doc.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/leonard/Projet_PCSC_final/cmake-build-debug/CMakeFiles --progress-num= "Built target doc"
+.PHONY : CMakeFiles/doc.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/doc.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/leonard/Projet_PCSC_final/cmake-build-debug/CMakeFiles 0
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/doc.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/leonard/Projet_PCSC_final/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/doc.dir/rule
+
+# Convenience name for target.
+doc: CMakeFiles/doc.dir/rule
+
+.PHONY : doc
+
+# clean rule for target.
+CMakeFiles/doc.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doc.dir/build.make CMakeFiles/doc.dir/clean
+.PHONY : CMakeFiles/doc.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

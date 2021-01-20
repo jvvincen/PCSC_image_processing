@@ -10,8 +10,9 @@ void fourier::display_im(cv::Mat image,string title)
     int k = cv::waitKey(1000);
 }
 
-// 1D Fast Fourier transform that work non recursively.
+
 void fourier::FFT(int n, bool inverse, const double *fRe, const double *fIm, double *FRe, double *FIm, int step, double factor)
+
 {
     int h = log2(n);
 
@@ -69,8 +70,8 @@ void fourier::FFT(int n, bool inverse, const double *fRe, const double *fIm, dou
     }
 }
 
-// 2D Fast Fourier transform that calls the 1D FFT for each row and each column. fRe and fIm are the input and FRe and Fim are the output with the transformation
 void fourier::FFT2D(int w, int h, const double *fRe, const double *fIm, double *FRe, double *FIm, bool inverse)
+
 {
     //temporary buffers
     std::vector<double> Gr2(h * w * 3);
@@ -89,39 +90,39 @@ void fourier::FFT2D(int w, int h, const double *fRe, const double *fIm, double *
 }
 
 
-// Calculates the amplitude of *fRe and *fIm and puts the result in *fAmp
-void fourier::calculateAmp(int n, int m, double *fAmp, const double *fRe, const double *fIm)
+
+void fourier::calculateAmp(int w, int h, double *fAmp, const double *fRe, const double *fIm)
+
 {
-    for(int y = 0; y < m; y++)
-        for(int x = 0; x < n; x++)
+    for(int y = 0; y < h; y++)
+        for(int x = 0; x < w; x++)
             for(int c = 0; c < 3; c++)
             {
-                fAmp[n * 3 * y + 3 * x + c] = sqrt(fRe[n * 3 * y + 3 * x + c] * fRe[n * 3 * y + 3 * x + c] + fIm[n * 3 * y + 3 * x + c] * fIm[n * 3 * y + 3 * x + c]);
+                fAmp[w * 3 * y + 3 * x + c] = sqrt(fRe[w * 3 * y + 3 * x + c] * fRe[w * 3 * y + 3 * x + c] + fIm[w * 3 * y + 3 * x + c] * fIm[w * 3 * y + 3 * x + c]);
             }
 }
 
-// f is the image to be drawn
-cv::Mat fourier::draw(int n, int m, const double *f, bool shift)
+cv::Mat fourier::draw(int w, int h, const double *f, bool shift)
 {
-    cv::Mat fourier(n, m, CV_8UC3, cv::Scalar(0, 0, 0));
-    for(int y1 = 0; y1 < m; y1++)
-        for(int x1 = 0; x1 < n; x1++)
+    cv::Mat fourier(w, h, CV_8UC3, cv::Scalar(0, 0, 0));
+    for(int y1 = 0; y1 < h; y1++)
+        for(int x1 = 0; x1 < w; x1++)
         {
             int x = x1, y = y1;
             if(shift) { // Shift corners to center for the visualisation of fourier transform
-                x = (x1 + n / 2) % n; y = (y1 + m / 2) % m;
+                x = (x1 + w / 2) % w; y = (y1 + h / 2) % h;
             }
             cv::Vec3b color = fourier.at<cv::Vec3b>(cv::Point(x1,y1));
 
             for(int i = 0; i < 3; i++) {
                 // calculate color values out of the array
-                color[i] = int(f[3 * n * y + 3 * x + i]);
+                color[i] = int(f[3 * w * y + 3 * x + i]);
 
                 // negative colors set to 0
-                if (int(f[3 * n * y + 3 * x + i]) < 0) color[i] = 0;
+                if (int(f[3 * w * y + 3 * x + i]) < 0) color[i] = 0;
 
                 // set color components higher than 255 to 255
-                if (int(f[3 * n * y + 3 * x + i]) > 255) color[i] = 255;
+                if (int(f[3 * w * y + 3 * x + i]) > 255) color[i] = 255;
 
             }
             fourier.at<cv::Vec3b>(cv::Point(x1,y1))=color;

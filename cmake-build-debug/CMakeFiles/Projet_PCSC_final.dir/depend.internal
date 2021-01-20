@@ -37,6 +37,7 @@ CMakeFiles/Projet_PCSC_final.dir/filter.cpp.o
  /usr/local/include/opencv4/opencv2/core/vsx_utils.hpp
  /usr/local/include/opencv4/opencv2/highgui.hpp
  /usr/local/include/opencv4/opencv2/imgcodecs.hpp
+ /usr/local/include/opencv4/opencv2/imgproc.hpp
  /usr/local/include/opencv4/opencv2/opencv_modules.hpp
  /usr/local/include/opencv4/opencv2/videoio.hpp
 CMakeFiles/Projet_PCSC_final.dir/fourier.cpp.o
@@ -74,6 +75,7 @@ CMakeFiles/Projet_PCSC_final.dir/fourier.cpp.o
  /usr/local/include/opencv4/opencv2/core/vsx_utils.hpp
  /usr/local/include/opencv4/opencv2/highgui.hpp
  /usr/local/include/opencv4/opencv2/imgcodecs.hpp
+ /usr/local/include/opencv4/opencv2/imgproc.hpp
  /usr/local/include/opencv4/opencv2/opencv_modules.hpp
  /usr/local/include/opencv4/opencv2/videoio.hpp
 CMakeFiles/Projet_PCSC_final.dir/helper.cpp.o
@@ -110,6 +112,7 @@ CMakeFiles/Projet_PCSC_final.dir/helper.cpp.o
  /usr/local/include/opencv4/opencv2/core/vsx_utils.hpp
  /usr/local/include/opencv4/opencv2/highgui.hpp
  /usr/local/include/opencv4/opencv2/imgcodecs.hpp
+ /usr/local/include/opencv4/opencv2/imgproc.hpp
  /usr/local/include/opencv4/opencv2/opencv_modules.hpp
  /usr/local/include/opencv4/opencv2/videoio.hpp
 CMakeFiles/Projet_PCSC_final.dir/image.cpp.o
@@ -149,6 +152,7 @@ CMakeFiles/Projet_PCSC_final.dir/image.cpp.o
  /usr/local/include/opencv4/opencv2/core/vsx_utils.hpp
  /usr/local/include/opencv4/opencv2/highgui.hpp
  /usr/local/include/opencv4/opencv2/imgcodecs.hpp
+ /usr/local/include/opencv4/opencv2/imgproc.hpp
  /usr/local/include/opencv4/opencv2/opencv_modules.hpp
  /usr/local/include/opencv4/opencv2/videoio.hpp
 CMakeFiles/Projet_PCSC_final.dir/main.cpp.o
@@ -188,5 +192,6 @@ CMakeFiles/Projet_PCSC_final.dir/main.cpp.o
  /usr/local/include/opencv4/opencv2/core/vsx_utils.hpp
  /usr/local/include/opencv4/opencv2/highgui.hpp
  /usr/local/include/opencv4/opencv2/imgcodecs.hpp
+ /usr/local/include/opencv4/opencv2/imgproc.hpp
  /usr/local/include/opencv4/opencv2/opencv_modules.hpp
  /usr/local/include/opencv4/opencv2/videoio.hpp

@@ -15,6 +15,9 @@ cv::Mat helper::load_image(std::string image_path)
 }
 // Set the rest of the color to 0 to have a power of 2 squared image if it isn't the case. Only way for the fft algorithm to work
 cv::Mat helper::load_square_image(std::string image_path) {
+    /*!
+     *
+     */
     cv::Mat image = helper::load_image(image_path);
 
     int H = image.rows, W = image.cols;

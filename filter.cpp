@@ -17,7 +17,7 @@ double *filter::blur(double *f, double radius1, int H, int W, int pass, double r
                 if (pow(x - W / 2, 2) + pow(y - H / 2, 2) < pow((double) H / 2 / radius1, 2) && pass == 1
                     // select only the interior of a radius1
                     || (pow(x - W / 2, 2) + pow(y - H / 2, 2) > pow((double) H / 2 / radius1, 2) ||
-                        (pow(x - W / 2, 2) + pow(y - H / 2, 2) == 0 )) && pass == 2
+                        (pow(x - W / 2, 2) + pow(y - H / 2, 2) == 0)) && pass == 2
                     // select only the exterior of radius1 and the middle point to have a brighter image
                     || (pow(x - W / 2, 2) + pow(y - H / 2, 2) > pow((double) H / 2 / max(radius1, radius2), 2) &&
                         (pow(x - W / 2, 2) + pow(y - H / 2, 2) < pow((double) H / 2 / min(radius1, radius2), 2)) ||

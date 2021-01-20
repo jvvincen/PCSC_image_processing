@@ -1,4 +1,5 @@
 #include "image.h"
+using namespace cv;
 
 int main(int argc, char **argv) {
 
@@ -9,7 +10,7 @@ int main(int argc, char **argv) {
     cv::Mat sinus = image::create_sin_image(128);
 
     image::display_fourier(sinus,"sinus");
-    image::display_fourier(image,image_path);
+    //image::display_fourier(image,image_path);
     image::choose_filter(image);
 
     return 0;
