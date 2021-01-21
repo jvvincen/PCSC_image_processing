@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/runTests.dir/tests.cpp.o CMakeFiles/runTests.dir/image.cpp.o CMakeFiles/runTests.dir/fourier.cpp.o CMakeFiles/runTests.dir/filter.cpp.o  -o runTests  googletest/libgtestd.a googletest/libgtest_maind.a googletest/libgtestd.a -pthread 

@@ -14,6 +14,9 @@
 # EXTERNAL cache entries
 ########################
 
+//Build shared libraries (DLLs).
+BUILD_SHARED_LIBS:BOOL=OFF
+
 //Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=/usr/bin/addr2line
 
@@ -90,6 +93,9 @@ CMAKE_C_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
 //Flags used by the C compiler during RELWITHDEBINFO builds.
 CMAKE_C_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 
+//Generate debug library name with a postfix.
+CMAKE_DEBUG_POSTFIX:STRING=d
+
 //Path to a program.
 CMAKE_DLLTOOL:FILEPATH=CMAKE_DLLTOOL-NOTFOUND
 
@@ -157,6 +163,21 @@ CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
 CMAKE_PROJECT_NAME:STATIC=Projet_PCSC_final
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION:STATIC=1.9.0
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_MAJOR:STATIC=1
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_MINOR:STATIC=9
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_PATCH:STATIC=0
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_TWEAK:STATIC=
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -230,6 +251,9 @@ DOXYGEN_EXECUTABLE:FILEPATH=/usr/bin/doxygen
 OpenCV_DIR:PATH=/usr/local/lib/cmake/opencv4
 
 //Path to a program.
+PYTHON_EXECUTABLE:FILEPATH=/usr/bin/python
+
+//Path to a program.
 ProcessorCount_cmd_nproc:FILEPATH=/usr/bin/nproc
 
 //Path to a program.
@@ -242,10 +266,29 @@ Projet_PCSC_final_BINARY_DIR:STATIC=/home/leonard/Projet_PCSC_final/cmake-build-
 Projet_PCSC_final_SOURCE_DIR:STATIC=/home/leonard/Projet_PCSC_final
 
 //Value Computed by CMake
-test_BINARY_DIR:STATIC=/home/leonard/Projet_PCSC_final/cmake-build-debug
+gtest_BINARY_DIR:STATIC=/home/leonard/Projet_PCSC_final/cmake-build-debug/googletest
 
 //Value Computed by CMake
-test_SOURCE_DIR:STATIC=/home/leonard/Projet_PCSC_final
+gtest_SOURCE_DIR:STATIC=/home/leonard/Projet_PCSC_final/googletest
+
+//Build gtest's sample programs.
+gtest_build_samples:BOOL=OFF
+
+//Build all of gtest's own tests.
+gtest_build_tests:BOOL=OFF
+
+//Disable uses of pthreads in gtest.
+gtest_disable_pthreads:BOOL=OFF
+
+//Use shared (DLL) run-time lib even when Google Test is built
+// as static lib.
+gtest_force_shared_crt:BOOL=OFF
+
+//Build gtest with internal symbols hidden in shared libraries.
+gtest_hide_internal_symbols:BOOL=OFF
+
+//Dependencies for the target
+gtest_main_LIB_DEPENDS:STATIC=general;gtest;
 
 
 ########################
@@ -338,6 +381,10 @@ CMAKE_GENERATOR_INSTANCE:INTERNAL=
 CMAKE_GENERATOR_PLATFORM:INTERNAL=
 //Name of generator toolset.
 CMAKE_GENERATOR_TOOLSET:INTERNAL=
+//Test CMAKE_HAVE_LIBC_PTHREAD
+CMAKE_HAVE_LIBC_PTHREAD:INTERNAL=
+//Have include pthread.h
+CMAKE_HAVE_PTHREAD_H:INTERNAL=1
 //Source directory with the top level CMakeLists.txt file for this
 // project
 CMAKE_HOME_DIRECTORY:INTERNAL=/home/leonard/Projet_PCSC_final
@@ -411,8 +458,33 @@ DOXYGEN_EXECUTABLE-ADVANCED:INTERNAL=1
 FIND_PACKAGE_MESSAGE_DETAILS_Doxygen:INTERNAL=[/usr/bin/doxygen][cfound components: doxygen missing components: dot][v1.8.13()]
 //Details about finding OpenCV
 FIND_PACKAGE_MESSAGE_DETAILS_OpenCV:INTERNAL=[/usr/local][v4.5.1()]
+//Details about finding Python
+FIND_PACKAGE_MESSAGE_DETAILS_Python:INTERNAL=[/usr/bin/python3.6][cfound components: Interpreter ][v3.6.9()]
+//Details about finding PythonInterp
+FIND_PACKAGE_MESSAGE_DETAILS_PythonInterp:INTERNAL=[/usr/bin/python][v2.7.17()]
+//Details about finding Threads
+FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
+//ADVANCED property for variable: PYTHON_EXECUTABLE
+PYTHON_EXECUTABLE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: ProcessorCount_cmd_nproc
 ProcessorCount_cmd_nproc-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: ProcessorCount_cmd_sysctl
 ProcessorCount_cmd_sysctl-ADVANCED:INTERNAL=1
+//Result of TRY_COMPILE
+THREADS_HAVE_PTHREAD_ARG:INTERNAL=TRUE
+//Path to a program.
+_Python_EXECUTABLE:INTERNAL=/usr/bin/python3.6
+//Python Properties
+_Python_INTERPRETER_PROPERTIES:INTERNAL=Python;3;6;9;64;m;cpython-36m-x86_64-linux-gnu;/usr/lib/python3.6;/usr/lib/python3.6;/usr/lib/python3/dist-packages;/usr/lib/python3/dist-packages
+_Python_INTERPRETER_SIGNATURE:INTERNAL=d56fdd14317999eabbcae3dea187bdf7
+//ADVANCED property for variable: gtest_build_samples
+gtest_build_samples-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: gtest_build_tests
+gtest_build_tests-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: gtest_disable_pthreads
+gtest_disable_pthreads-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: gtest_force_shared_crt
+gtest_force_shared_crt-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: gtest_hide_internal_symbols
+gtest_hide_internal_symbols-ADVANCED:INTERNAL=1
 
