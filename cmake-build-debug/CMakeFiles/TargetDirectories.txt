@@ -1,0 +1,4 @@
+/home/leonard/PCSC_image_processing-leonardung-final/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/leonard/PCSC_image_processing-leonardung-final/cmake-build-debug/CMakeFiles/Projet_PCSC_final.dir
+/home/leonard/PCSC_image_processing-leonardung-final/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/leonard/PCSC_image_processing-leonardung-final/cmake-build-debug/CMakeFiles/doc.dir

@@ -1,0 +1,4 @@
+/snap/clion/137/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/leonard/PCSC_image_processing-leonardung-final
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/leonard/PCSC_image_processing-leonardung-final/cmake-build-debug

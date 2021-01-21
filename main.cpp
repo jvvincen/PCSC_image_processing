@@ -1,43 +1,20 @@
-#include "helper.hpp"
-#include "ImageClass.hpp"
-#include <opencv2/imgproc/imgproc.hpp>
-
-using namespace std;
+#include "imageFourierClass.h"
 using namespace cv;
 
+int main(int argc, char **argv) {
 
-int main()
-{
-  std::string image_path = "../cla.jpg";
+    string image_path = "256.png";
+    //string image_path = "photo2.png"; // not square
 
-  cv::Mat clarisse = load_image(image_path);
-  cv::Mat clarisse_grise;
-  cv::cvtColor(clarisse, clarisse_grise, cv::COLOR_BGR2GRAY);
+    cv::Mat image = load_square_image(image_path);
+    cv::Mat sinus = imageFourierClass::create_sin_image(128);
 
-  //display_im(clarisse);
-  //std::vector<std::vector<uchar>> vec = channels_to_vectors(clarisse);
-  //std::cout << vectorC[0][10] << std::endl;
+    imageFourierClass::display_fourier(sinus, "sinus");
+    imageFourierClass::display_fourier(image, image_path);
+    destroyAllWindows();
 
-  //display_im(vec_to_cv(vec,1280, 960));
-
-  std::vector<uchar> clarisse_vec = cv_to_vector(clarisse_grise);
-
-  int rows = clarisse_grise.rows;
-  int cols = clarisse_grise.cols;
-
-  ImageClass first_image(rows, cols, clarisse_vec);
-//std::cout << first_image.get_intensity(100, 100) << '\n';
-  //first_image.histogram();
-
-  first_image.histogram();
-
-  display_im(vec_to_cv(first_image.get_pixels(), first_image.get_nrows(),
-                        first_image.get_ncol()));
+    imageFourierClass::choose_filter(image);
 
 
-
-
-  //IDJ image_de_juliette;
-
-
+    return 0;
 }
