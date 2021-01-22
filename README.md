@@ -95,6 +95,7 @@ You are then asked to choose between four filters that can be applied on the rep
     <img src="/pics/Transformed with a band erased - (Original, Real part filtered, Transformed).png" alt="square image" width="600"/>
 
 
+# Juliette
 
 The image of Lena is displayed is in color.
 
