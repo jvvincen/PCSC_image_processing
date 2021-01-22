@@ -79,13 +79,10 @@ The image of Lena appears in succession, first Prewitt horizontal then vertical,
 **Prewitt for horizontal edge detection**
 
 
-$$
-\left(\begin{array}{ccc}
--1 & 0 & 1\\
--1 & 0 & 1\\
--1 & 0 & 1
-\end{array}\right)
-$$
+
+<img src="/pics/prewitt_h.png" alt=" prewitt horizontal" width="400"/>
+
+
 
 
 
@@ -94,13 +91,8 @@ $$
 
 
 **Prewitt for vertical edge detection**
-$$
-\left(\begin{array}{ccc}
- 1 & 1 & 1\\
- 0 & 0 & 0\\
--1 & -1 & -1
-\end{array}\right)
-$$
+
+<img src="/pics/prewitt_v.png" alt=" prewitt vertical" width="400"/>
 
 
 <img src="/pics/vertical.png" alt="Lena prewitt vertical" width="400"/>
@@ -109,13 +101,7 @@ $$
 **High Pass**
 
 
-$$
-\left(\begin{array}{ccc}
-0 & -1 & 0\\
--1 & 5 & -1\\
-0 & -1 & 0
-\end{array}\right)
-$$
+<img src="/pics/high_pass.png" alt="high pass" width="400"/>
 
 
 
