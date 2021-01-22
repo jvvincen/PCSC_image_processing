@@ -1,7 +1,6 @@
 #include "helper.hpp"
 #include "ImageClass.hpp"
 #include "imageFourierClass.hpp"
-#include <opencv2/imgproc/imgproc.hpp>
 
 using namespace std;
 using namespace cv;
