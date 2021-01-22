@@ -37,10 +37,6 @@ tests --&gt; ./runTests
 The programm will first load an image using the library "OpenCV".
 The loaded image is transformed to a square image of a size of power of two.
 
-<img src="/pics/square.png" alt="square image" width="400"/>
-
-The size of the original image was 320 x 240. It has been transformed to a 512 x 512 image.
-
 It will also load a sinusoidal image to have a good representation of the Fourier transform on an image. 
 It will then calculate the 2D fast Fourier transform on both images and display them in three windows containing the real part, imaginary part and amplitude. 
 The three windows are the follow:
