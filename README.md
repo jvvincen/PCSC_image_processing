@@ -48,10 +48,12 @@ The three windows are the follow:
 Between each windows you will have to press any key to display the next window.
 
 The sinusolidal image with its transform and as we see, only one frequence in the real part is non-zero.
+
 <img src="/pics/sinus - Re-transformed - (Real, Imaginary, Amplitude).png" alt="square image" width="600"/>
 <img src="/pics/sinus - Transformed - (Real, Imaginary, Amplitude).png" alt="square image" width="600"/>
 
 An original squared image with its Fourier transform
+
 <img src="/pics/256.png - Untransformed - (Real, Imaginary, Amplitude).png" alt="square image" width="600"/>
 <img src="/pics/256.png - Transformed - (Real, Imaginary, Amplitude).png" alt="square image" width="600"/>
 
@@ -62,6 +64,7 @@ You are then asked to choose between four filters that can be applied on the rep
     It is given by the percentage of the image size.
     
     An example with a radius of 10% of the image size.
+    
     <img src="/pics/Blurred with a radius divided by 10.000000 - (Original, Real part filtered, Transformed).png" alt="square image" width="600"/>
 
 
@@ -70,6 +73,7 @@ You are then asked to choose between four filters that can be applied on the rep
     It is given by the percentage of the image size.
     
     An example with a radius 30% of the image size.
+    
     <img src="/pics/Blurred with a radius divided by 3.333333 - (Original, Real part filtered, Transformed).png" alt="square image" width="600"/>
     
     Note that the lowest frequency is kept to have a better representation. Otherwise, the image would be very dark.
@@ -80,6 +84,7 @@ You are then asked to choose between four filters that can be applied on the rep
     The radius are given by the percentage of the image size.
     
     An example with radius of 5% and 30% of the image size.
+    
     <img src="/pics/Transformed with a selected band - (Original, Real part filtered, Transformed).png" alt="square image" width="600"/>
 
 
@@ -88,6 +93,7 @@ You are then asked to choose between four filters that can be applied on the rep
     The radius are given by the percentage of the image size.
     
     An example with radius of 5% and 30% of the image size.
+    
     <img src="/pics/Transformed with a band erased - (Original, Real part filtered, Transformed).png" alt="square image" width="600"/>
 
 
