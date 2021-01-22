@@ -80,7 +80,7 @@ The image of Lena appears in succession, first Prewitt horizontal then vertical,
 
 
 
-<img src="/pics/prewitt_h.png" alt=" prewitt horizontal" width="400"/>
+<img src="/pics/prewitt_h.png" alt=" prewitt horizontal" width="200"/>
 
 
 
@@ -92,7 +92,7 @@ The image of Lena appears in succession, first Prewitt horizontal then vertical,
 
 **Prewitt for vertical edge detection**
 
-<img src="/pics/prewitt_v.png" alt=" prewitt vertical" width="400"/>
+<img src="/pics/prewitt_v.png" alt=" prewitt vertical" width="200"/>
 
 
 <img src="/pics/vertical.png" alt="Lena prewitt vertical" width="400"/>
@@ -101,11 +101,11 @@ The image of Lena appears in succession, first Prewitt horizontal then vertical,
 **High Pass**
 
 
-<img src="/pics/high_pass.png" alt="high pass" width="400"/>
+<img src="/pics/high_pass.png" alt="high pass" width="200"/>
 
 
 
-<img src="/pics/highpass.png" alt="Lena high" width="400"/>
+<img src="/pics/high_pass.png" alt="Lena high" width="400"/>
 
 
 The high pass filter accentuates the bright features of the image.
@@ -116,7 +116,9 @@ The perfect opportunity to test our median filter for noise removal!
 
 By applying the median filter, each pixel takes the median value for the surrounding pixels.
 We can see that, compared to the high pass filter Lena, the noise is reduced.
-![Lena high](/pics/median.png)
+
+
+<img src="/pics/median_filter.png" alt="Lena median" width="400"/>
 
 **Edge detection**
 
