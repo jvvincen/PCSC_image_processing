@@ -42,24 +42,31 @@ You will have to press space in order to display the  Fourier transformation of 
 
 The image of Lena is displayed is in color.
 
-![Lena color](/pics/lena.png)
+
+
+<img src="/pics/lena.png" alt="Lena color" width="400"/>
 
 After pressing a key, four histograms are displayed showing the intensity distribution of the pixels for the image in gray and the three channels separately, Red, Green and Blue. The range of intensity values goes from 0 being black to 255, the brightest.
 
 The histogram is plotted with Python, but the histogram data comes from the c++ code and is stored in the histogram.txt file.
 
-![Gray histogram](/pics/gray.png)
+
+<img src="/pics/gray.png" alt="Gray histogram" width="400"/>
 
 There are pics of intensity around the low values (50) and medium (150).
 
-![Lena red](/pics/red.png)
+
+<img src="/pics/red.png" alt="Lena red" width="400"/>
+
 For the red, the peak is located around 225, showing high values of intensity for the red distribution.
 It can be explained by the pinky/red bakground.
 
-![Lena blue](/pics/blue.png)
+
+<img src="/pics/blue.png" alt="Lena blue" width="400"/>
 
 The repartition of the blue intensities is well distributed across all values from 0 to 220.
-![Lena green](/pics/green.png)
+
+<img src="/pics/green.png" alt="Lena green" width="400"/>
 
 Concerning the green pixels, there are no low intensities. They are all belonging to a medium value range between 50 and 200.
 
@@ -82,7 +89,7 @@ $$
 
 
 
-<img src="/pics/horizontal.png" alt="Lena prewitt horizontal" width="200"/>
+<img src="/pics/horizontal.png" alt="Lena prewitt horizontal" width="400"/>
 
 
 
@@ -96,7 +103,7 @@ $$
 $$
 
 
-<img src="/pics/vertical.png" alt="Lena prewitt vertical" width="200"/>
+<img src="/pics/vertical.png" alt="Lena prewitt vertical" width="400"/>
 
 
 **High Pass**
@@ -112,7 +119,7 @@ $$
 
 
 
-<img src="/pics/highpass.png" alt="Lena high" width="200"/>
+<img src="/pics/highpass.png" alt="Lena high" width="400"/>
 
 
 The high pass filter accentuates the bright features of the image.
@@ -130,10 +137,10 @@ We can see that, compared to the high pass filter Lena, the noise is reduced.
 We also tried to apply the edge detection with horizontal prewitt on the image of hand shadows.
 
 
-<img src="/pics/hand_shadows.png" alt="Hand shadows" width="200"/>
+<img src="/pics/hand_shadows.png" alt="Hand shadows" width="400"/>
 
 
-<img src="/pics/hand_shadows_contour.png" alt="Hand shadows" width="200"/>
+<img src="/pics/hand_shadows_contour.png" alt="Hand shadows" width="400"/>
 
 We can see that it detects the edges.
 
