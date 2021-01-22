@@ -105,7 +105,7 @@ The image of Lena appears in succession, first Prewitt horizontal then vertical,
 
 
 
-<img src="/pics/high_pass.png" alt="Lena high" width="400"/>
+<img src="/pics/highpass.png" alt="Lena high" width="400"/>
 
 
 The high pass filter accentuates the bright features of the image.
