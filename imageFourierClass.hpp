@@ -2,8 +2,8 @@
 // Created by leonard on 26.12.20.
 //
 
-#ifndef TEST_IMAGE_H
-#define TEST_IMAGE_H
+#ifndef imageFourierClass_H
+#define imageFourierClass_H
 
 
 #include "helper.hpp"
