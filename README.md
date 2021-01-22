@@ -34,6 +34,11 @@ tests --&gt; ./runTests
 
 The programm will first load an image using the library "OpenCV".
 The loaded image is transformed to a square image of a size of power of two.
+
+<img src="/pics/square.png" alt="square image" width="400"/>
+
+The size of the original image was 320 x 240. It has been transformed to a 512 x 512 image.
+
 It will also load a sinusoidal image to have a good representation of the Fourier transform on an image. 
 It will then calculate the 2D fast Fourier transform on both images and display them in three windows containing the real part, imaginary part and amplitude. 
 The three windows are the follow:
@@ -43,6 +48,16 @@ The three windows are the follow:
  - Re-transformed image (should be the same as the original image)
  
 Between each windows you will have to press any key to display the next window.
+
+Here is the sinusolidal image with its transform and as we see, only one frequence in the real part is non-zero.
+
+<img src="/pics/sinus - Re-transformed - (Real, Imaginary, Amplitude).png" alt="square image" width="600"/>
+<img src="/pics/sinus - Transformed - (Real, Imaginary, Amplitude).png" alt="square image" width="600"/>
+
+Here is an original squared image with its Fourier transform
+
+<img src="/pics/256.png - Untransformed - (Real, Imaginary, Amplitude).png" alt="square image" width="600"/>
+<img src="/pics/256.png - Transformed - (Real, Imaginary, Amplitude).png" alt="square image" width="600"/>
 
 You are then asked to choose between four filters that can be applied on the representation of the fourier transform:
 
