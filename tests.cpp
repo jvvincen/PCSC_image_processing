@@ -1,5 +1,6 @@
-#include "helper.hpp"
 #include "ImageClass.hpp"
+#include "FFTcalcul.h"
+#include <cmath>
 #include <opencv2/imgproc/imgproc.hpp>
 #include "gtest/gtest.h"
 
@@ -37,6 +38,34 @@ TEST(ImageClassTest, get_Intensity)
   EXPECT_EQ(4, imagetest.get_intensity(10,10));
   // We are expecting an intensity of 0, as the image intensities are all 0.
 }
+
+TEST(FFTcalculTest, FFT2D)
+{
+    int n=32;
+    double *fRe= new double[n*n*3],*fIm= new double[n*n*3];
+    for (int i=1;i<n*n*3;i++) {
+        fRe[i]=i*3; // initialize random array
+    }
+    double *FRe= new double[n*n*3], *FIm= new double[n*n*3];
+    double *fRe2 = new double[n*n*3], *fIm2 = new double[n*n*3];
+    FFTcalcul::FFT2D(n,n,fRe,fIm,FRe,FIm);
+    FFTcalcul::FFT2D(n,n,FRe,FIm,fRe2,fIm2,true);
+
+    for (int i=1;i<n*n*3;i++) {
+        EXPECT_EQ(round(fRe[i]), round(fRe2[i]));
+    }
+}
+
+TEST(FFTcalculTest, blur){
+    int n=16;
+    double *fRe= new double[n*n*3];
+    for (int i=1;i<n*n*3;i++) {
+        fRe[i]=10; // initialize random array
+    }
+    double *fReFilt=FFTcalcul::blur(fRe,2,n,n,1);// 10% unselected circle
+    EXPECT_EQ(0,fReFilt[n*n*3/2]); // middle point, with the shift it is the corner
+}
+
 
 int main(int argc, char **argv){
         ::testing::InitGoogleTest(&argc, argv);

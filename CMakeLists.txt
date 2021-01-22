@@ -13,12 +13,12 @@ include_directories(${OpenCV_INCLUDE_DIRS})
 
 
 
-add_executable(image_process main.cpp helper.cpp ImageClass.cpp imageFourierClass.cpp)
+add_executable(image_process main.cpp helper.cpp ImageClass.cpp imageFourierClass.cpp FFTcalcul.cpp FFTcalcul.h)
 target_link_libraries(image_process ${OpenCV_LIBS})
 
 
 
-add_executable(runTests tests.cpp  ImageClass.cpp)
+add_executable(runTests tests.cpp ImageClass.cpp ImageClass.hpp FFTcalcul.cpp FFTcalcul.h)
 target_link_libraries(runTests gtest gtest_main)
 add_test(runTests runTests)
 

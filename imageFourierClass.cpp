@@ -4,96 +4,7 @@
 
 #include "imageFourierClass.hpp"
 
-void imageFourierClass::FFT(int n, bool inverse, const double *fRe, const double *fIm, double *FRe, double *FIm, int step, double factor)
 
-{
-    int h = log2(n);
-
-    //Bit reversal
-    FRe[(n - 1) * step] = fRe[(n - 1) * step];
-    FIm[(n - 1) * step] = fIm[(n - 1) * step];
-    int j = 0;
-    for(int i = 0; i < n - 1; i++)
-    {
-        FRe[i * step] = fRe[j * step];
-        FIm[i * step] = fIm[j * step];
-        int k = n / 2;
-        while(k <= j)
-        {
-            j -= k;
-            k /= 2;
-        }
-        j += k;
-    }
-    // Calculate the FFT
-    double ca = -1.0;
-    double sa = 0.0;
-    int l1 = 1, l2 = 1;
-    for(int l = 0; l < h; l++)
-    {
-        l1 = l2;
-        l2 *= 2;
-        double u1 = 1.0;
-        double u2 = 0.0;
-        for(int j = 0; j < l1; j++)
-        {
-            for(int i = j; i < n; i += l2)
-            {
-                int i1 = i + l1;
-                double t1 = u1 * FRe[i1 * step] - u2 * FIm[i1 * step];
-                double t2 = u1 * FIm[i1 * step] + u2 * FRe[i1 * step];
-                FRe[i1 * step] = FRe[i * step] - t1;
-                FIm[i1 * step] = FIm[i * step] - t2;
-                FRe[i * step] += t1;
-                FIm[i * step] += t2;
-            }
-            double z =  u1 * ca - u2 * sa;
-            u2 = u1 * sa + u2 * ca;
-            u1 = z;
-        }
-        sa = sqrt((1.0 - ca) / 2.0);
-        if(!inverse) sa =- sa;
-        ca = sqrt((1.0 + ca) / 2.0);
-    }
-    // Divide through the factor
-    for(int i = 0; i < n; i++)
-    {
-        FRe[i * step] /= factor;
-        FIm[i * step] /= factor;
-    }
-}
-
-void imageFourierClass::FFT2D(int w, int h, const double *fRe, const double *fIm, double *FRe, double *FIm, bool inverse)
-
-{
-    //temporary buffers
-    std::vector<double> Gr2(h * w * 3);
-    std::vector<double> Gi2(h * w * 3);
-
-    for(int y = 0; y < h; y++) // row
-        for(int c = 0; c < 3; c++) // color channel
-        {
-            imageFourierClass::FFT(w, inverse, &fRe[y * w * 3 + c], &fIm[y * w * 3 + c], &Gr2[y * w * 3 + c], &Gi2[y * w * 3 + c], 3, 1);
-        }
-    for(int x = 0; x < w; x++) // column
-        for(int c = 0; c < 3; c++) // color channel
-        {
-            imageFourierClass::FFT(h, inverse, &Gr2[x * 3 + c], &Gi2[x * 3 + c], &FRe[x * 3 + c], &FIm[x * 3 + c], w * 3, w);
-        }
-}
-
-
-
-void imageFourierClass::calculateAmp(int w, int h, double *fAmp, const double *fRe, const double *fIm)
-
-{
-    for(int y = 0; y < h; y++)
-        for(int x = 0; x < w; x++)
-            for(int c = 0; c < 3; c++)
-            {
-                fAmp[w * 3 * y + 3 * x + c] = sqrt(fRe[w * 3 * y + 3 * x + c] * fRe[w * 3 * y + 3 * x + c] + fIm[w * 3 * y + 3 * x + c] * fIm[w * 3 * y + 3 * x + c]);
-            }
-}
 
 cv::Mat imageFourierClass::draw(int w, int h, const double *f, bool shift)
 {
@@ -136,39 +47,7 @@ void imageFourierClass::display_real_im_amp(cv::Mat real, cv::Mat im, cv::Mat am
     matDst.release();
     matRoi.release();
 }
-double *imageFourierClass::blur(double *f, double radius1, int H, int W, int pass, double radius2) {
-    double *f_filter = new double[H * W * 3];
-    for (int y = 0; y < H; y++)
-        for (int x = 0; x < W; x++) {
-            int x1 = x, y1 = y;
-            x1 = (x + W / 2) % W;
-            y1 = (y + H / 2) % H;
-            for (int i = 0; i < 3; i++) {
 
-                if (pow(x - W / 2, 2) + pow(y - H / 2, 2) < pow((double) H / 2 / radius1, 2) && pass == 1
-                    // select only the interior of a radius1
-                    || (pow(x - W / 2, 2) + pow(y - H / 2, 2) > pow((double) H / 2 / radius1, 2) ||
-                        (pow(x - W / 2, 2) + pow(y - H / 2, 2) == 0)) && pass == 2
-                    // select only the exterior of radius1 and the middle point to have a brighter image
-                    || (pow(x - W / 2, 2) + pow(y - H / 2, 2) > pow((double) H / 2 / max(radius1, radius2), 2) &&
-                        (pow(x - W / 2, 2) + pow(y - H / 2, 2) < pow((double) H / 2 / min(radius1, radius2), 2)) ||
-                        (pow(x - W / 2, 2) + pow(y - H / 2, 2) == 0)) && pass == 3
-                    // select only a band between radius1 and radius2 and also the middle point to have a brighter image
-                    || (pow(x - W / 2, 2) + pow(y - H / 2, 2) > pow((double) H / 2 / min(radius1, radius2), 2) ||
-                        (pow(x - W / 2, 2) + pow(y - H / 2, 2) < pow((double) H / 2 / max(radius1, radius2), 2))) &&
-                       pass == 4
-                    // select only the exterior of a band between radius1 and radius 2
-                        ) {
-
-                    f_filter[3 * W * y1 + 3 * x1 + i] = f[3 * W * y1 + 3 * x1 + i];
-                } else {
-                    f_filter[3 * W * y1 + 3 * x1 + i] = 0;
-                }
-
-            }
-        }
-    return f_filter;
-}
 
 void imageFourierClass::display_fourier(cv::Mat image, std::string title) {
     int H = image.rows, W = image.cols, c = 3;
@@ -180,7 +59,7 @@ void imageFourierClass::display_fourier(cv::Mat image, std::string title) {
     fRe = cv_to_pointer(image);
 
     // Draw the image without transformation
-    imageFourierClass::calculateAmp(W, H, fAmp, fRe, fIm);
+    FFTcalcul::calculateAmp(W, H, fAmp, fRe, fIm);
     cv::Mat untransformed_real = imageFourierClass::draw(W, H, fRe, false);
     cv::Mat untransformed_im = imageFourierClass::draw(W, H, fIm, false);
     cv::Mat untransformed_amp = imageFourierClass::draw(W, H, fAmp, false);
@@ -188,11 +67,11 @@ void imageFourierClass::display_fourier(cv::Mat image, std::string title) {
                         title + " - Untransformed - (Real, Imaginary, Amplitude)");
 
     // Calculate and draw FFT
-    imageFourierClass::FFT2D(W, H, fRe, fIm, FRe, FIm);
+    FFTcalcul::FFT2D(W, H, fRe, fIm, FRe, FIm);
     delete[] fRe;
     delete[] fIm;
     delete[] fAmp;
-    imageFourierClass::calculateAmp(W, H, FAmp, FRe, FIm);
+    FFTcalcul::calculateAmp(W, H, FAmp, FRe, FIm);
     cv::Mat transformed_real = imageFourierClass::draw(W, H, FRe, true);
     cv::Mat transformed_im = imageFourierClass::draw(W, H, FIm, true);
     cv::Mat transformed_amp = imageFourierClass::draw(W, H, FAmp, true);
@@ -200,8 +79,8 @@ void imageFourierClass::display_fourier(cv::Mat image, std::string title) {
                         title + " - Transformed - (Real, Imaginary, Amplitude)");
 
     // Calculate and draw the inverse of FFT to get the image back
-    imageFourierClass::FFT2D(W, H, FRe, FIm, fRe2, fIm2, true);
-    imageFourierClass::calculateAmp(W, H, fAmp2, fRe2, fIm2);
+    FFTcalcul::FFT2D(W, H, FRe, FIm, fRe2, fIm2, true);
+    FFTcalcul::calculateAmp(W, H, fAmp2, fRe2, fIm2);
     cv::Mat retransformed_real = imageFourierClass::draw(W, H, fRe2, false);
     cv::Mat retransformed_im = imageFourierClass::draw(W, H, fIm2, false);
     cv::Mat retransformed_amp = imageFourierClass::draw(W, H, fAmp2, false);
@@ -227,14 +106,14 @@ void imageFourierClass::display_blur(cv::Mat image, double radius1, int pass, do
                                                                                                      c], *fImBlur = new double[
     H * W * c];
     fRe = cv_to_pointer(image);
-    imageFourierClass::FFT2D(W, H, fRe, fIm, FRe, FIm);
+    FFTcalcul::FFT2D(W, H, fRe, fIm, FRe, FIm);
     delete[] fRe;
     delete[] fIm;
-    FReBlur = imageFourierClass::blur(FRe, radius1, H, W, pass, radius2);
+    FReBlur = FFTcalcul::blur(FRe, radius1, H, W, pass, radius2);
     delete[] FRe;
-    FImBlur = imageFourierClass::blur(FIm, radius1, H, W, pass, radius2);
+    FImBlur = FFTcalcul::blur(FIm, radius1, H, W, pass, radius2);
     delete[] FIm;
-    imageFourierClass::FFT2D(W, H, FReBlur, FImBlur, fReBlur, fImBlur, true);
+    FFTcalcul::FFT2D(W, H, FReBlur, FImBlur, fReBlur, fImBlur, true);
     delete[] fImBlur;
     cv::Mat blur_transformed_re = imageFourierClass::draw(W, H, FReBlur, true);
     delete[] FReBlur;
