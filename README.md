@@ -32,6 +32,8 @@ tests --&gt; ./runTests
    ## PROCEDURE: Running ./image_process
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+# Fourier transform
+
 The programm will first load an image using the library "OpenCV".
 The loaded image is transformed to a square image of a size of power of two.
 
@@ -49,13 +51,11 @@ The three windows are the follow:
  
 Between each windows you will have to press any key to display the next window.
 
-Here is the sinusolidal image with its transform and as we see, only one frequence in the real part is non-zero.
-
+The sinusolidal image with its transform and as we see, only one frequence in the real part is non-zero.
 <img src="/pics/sinus - Re-transformed - (Real, Imaginary, Amplitude).png" alt="square image" width="600"/>
 <img src="/pics/sinus - Transformed - (Real, Imaginary, Amplitude).png" alt="square image" width="600"/>
 
-Here is an original squared image with its Fourier transform
-
+An original squared image with its Fourier transform
 <img src="/pics/256.png - Untransformed - (Real, Imaginary, Amplitude).png" alt="square image" width="600"/>
 <img src="/pics/256.png - Transformed - (Real, Imaginary, Amplitude).png" alt="square image" width="600"/>
 
@@ -63,23 +63,36 @@ You are then asked to choose between four filters that can be applied on the rep
 
  1) Select only the low frequencies, represented by a circle in the center, it will blur the image.
     The user will have to choose the radius of the circle.
-    It is given by the percentage of the size of the image.
+    It is given by the percentage of the image size.
+    
+    An example with a radius of 10% of the image size.
+    <img src="/pics/Blurred with a radius divided by 10.000000 - (Original, Real part filtered, Transformed).png" alt="square image" width="600"/>
+
 
  2) Select only the high frequencies, represented by erasing a circle in the center of the fourier transform.
     The user will have to choose the radius of the circle.
-    It is given by the percentage of the size of the image.
+    It is given by the percentage of the image size.
+    
+    An example with a radius 30% of the image size.
+    <img src="/pics/Blurred with a radius divided by 3.333333 - (Original, Real part filtered, Transformed).png" alt="square image" width="600"/>
+    
+    Note that the lowest frequency is kept to have a better representation. Otherwise, the image would be very dark.
+
 
  3) Select only a band between low and high frequencies.
     The user will choose two radius to create two circles, it will select only a band between these two circles.
-    The radius are given by the percentage of the size of the image.
+    The radius are given by the percentage of the image size.
+    
+    An example with radius of 5% and 30% of the image size.
+    <img src="/pics/Transformed with a selected band - (Original, Real part filtered, Transformed).png" alt="square image" width="600"/>
+
 
  4) Select only very low and very high frequencies.
     The user will choose two radius to create two circles, it will erase the band between these two circles.
-    The radius are given by the percentage of the size of the image.
-
-When you start the main program, you will be prompted with a display of the chosen picture.
-
-You will have to press space in order to display the Fourier transformation of the image.
+    The radius are given by the percentage of the image size.
+    
+    An example with radius of 5% and 30% of the image size.
+    <img src="/pics/Transformed with a band erased - (Original, Real part filtered, Transformed).png" alt="square image" width="600"/>
 
 
 
