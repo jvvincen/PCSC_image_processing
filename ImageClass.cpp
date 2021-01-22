@@ -3,6 +3,7 @@
 #include <iterator>
 #include <string>
 #include <numeric>
+#include <algorithm>
 #include "ImageClass.hpp"
 
 
