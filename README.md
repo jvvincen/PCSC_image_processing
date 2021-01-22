@@ -48,18 +48,18 @@ After pressing a key, four histograms are displayed showing the intensity distri
 
 The histogram is plotted with Python, but the histogram data comes from the c++ code and is stored in the histogram.txt file.
 
-![Gray histogram](/pics/gray)
+![Gray histogram](/pics/gray.png)
 
 There are pics of intensity around the low values (50) and medium (150).
 
-![Lena red](/pics/red)
+![Lena red](/pics/red.png)
 For the red, the peak is located around 225, showing high values of intensity for the red distribution.
 It can be explained by the pinky/red bakground.
 
-![Lena blue](/pics/blue)
+![Lena blue](/pics/blue.png)
 
 The repartition of the blue intensities is well distributed across all values from 0 to 220.
-![Lena green](/pics/green)
+![Lena green](/pics/green.png)
 
 Concerning the green pixels, there are no low intensities. They are all belonging to a medium value range between 50 and 200.
 
@@ -70,6 +70,8 @@ The image of Lena appears in succession, first Prewitt horizontal then vertical,
 
 
 **Prewitt for horizontal edge detection**
+
+
 $$
 \left(\begin{array}{ccc}
 -1 & 0 & 1\\
@@ -78,7 +80,9 @@ $$
 \end{array}\right)
 $$
 
-![Lena prewitt horizontal](/pics/horizontal)
+
+
+<img src="/pics/horizontal.png" alt="Lena prewitt horizontal" width="200"/>
 
 
 
@@ -91,10 +95,13 @@ $$
 \end{array}\right)
 $$
 
-![Lena prewitt vertical](/pics/vertical)
+
+<img src="/pics/vertical.png" alt="Lena prewitt vertical" width="200"/>
 
 
 **High Pass**
+
+
 $$
 \left(\begin{array}{ccc}
 0 & -1 & 0\\
@@ -103,7 +110,9 @@ $$
 \end{array}\right)
 $$
 
-![Lena high](/pics/highpass)
+
+
+<img src="/pics/highpass.png" alt="Lena high" width="200"/>
 
 
 The high pass filter accentuates the bright features of the image.
@@ -114,15 +123,17 @@ The perfect opportunity to test our median filter for noise removal!
 
 By applying the median filter, each pixel takes the median value for the surrounding pixels.
 We can see that, compared to the high pass filter Lena, the noise is reduced.
-![Lena high](/pics/median)
+![Lena high](/pics/median.png)
 
 **Edge detection**
 
 We also tried to apply the edge detection with horizontal prewitt on the image of hand shadows.
 
-![Hand shadows](/pics/hand_shadows)
 
-![Hand shadows](/pics/hand_shadows_contour)
+<img src="/pics/hand_shadows.png" alt="Hand shadows" width="200"/>
+
+
+<img src="/pics/hand_shadows_contour.png" alt="Hand shadows" width="200"/>
 
 We can see that it detects the edges.
 
