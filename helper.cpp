@@ -10,16 +10,10 @@ cv::Mat load_image(std::string image_path)
   return image;
 }
 
-void display_im(cv::Mat image)
+void display_im(cv::Mat image, std::string title)
 {
-  imshow("Display window", image);
-  int k = waitKey(0); // Wait for a keystroke in the windowimshow("Display window", clarisse);
-  /*
-  if(k == 's')
-  {
-      imwrite("cla.png", clarisse);
-  }
-  */
+    imshow(title, image);
+    int k = cv::waitKey(0);
 }
 
 std::vector<uchar> cv_to_vector(Mat image)
@@ -76,7 +70,6 @@ std::vector<std::vector<uchar>> channels_to_vectors(Mat image)
 
 cv::Mat vec_to_cv(std::vector<uchar> vec, int rows, int cols){
 
-  std::cout << "conforme" << '\n';
   Mat img = Mat(rows, cols, CV_8UC1); // initialize matrix of uchar of 1-channel where you will store vec data
 
   /*
@@ -103,4 +96,49 @@ cv::Mat vec_to_cv(std::vector<uchar> vec, int rows, int cols){
 
   return img;
 
+}
+// single chanel 3D array
+double *cv_to_pointer(cv::Mat image) {
+    double H = image.rows, W = image.cols, c = 3;
+    double * ptr;
+    ptr=(new double[(int)(H*W*c)]);
+
+    for (int i=0;i<W*H*c;i++){
+        int x,y,indexc;
+        y=(int)floor((double)i/(W*c));
+        x=(int)(floor((double)i/c))%(int)W;
+        indexc=i%3;
+
+        ptr[i]=static_cast<double>(image.at<cv::Vec3b>(cv::Point(x,y))[indexc]);
+    }
+
+    return ptr;
+
+}
+// Set the rest of the color to 0 to have a power of 2 squared image if it isn't the case. Only way for the fft algorithm to work
+cv::Mat load_square_image(std::string image_path) {
+    /*!
+     *
+     */
+    cv::Mat image = load_image(image_path);
+
+    int H = image.rows, W = image.cols;
+    int square_size = max(H, W);
+    int log_2 = ceil(log2(square_size));
+    square_size = pow(2, log_2);
+    cv::Mat sqrt_im(square_size, square_size, CV_8UC3, cv::Scalar(0, 0, 0));
+    for (int y = 0; y < H; y++)
+          for (int x = 0; x < W; x++) {
+              cv::Vec3b color = image.at<cv::Vec3b>(cv::Point(x, y));
+              sqrt_im.at<cv::Vec3b>(cv::Point(x, y)) = color;
+        }
+    for (int y = H; y < square_size; y++)
+        for (int x = W; x < square_size; x++) {
+              cv::Vec3b color = sqrt_im.at<cv::Vec3b>(cv::Point(x, y));
+              for (int i = 0; i < 3; i++) {
+                  color[i] = 0;
+              }
+              sqrt_im.at<cv::Vec3b>(cv::Point(x, y)) = color;
+          }
+    return sqrt_im;
 }
