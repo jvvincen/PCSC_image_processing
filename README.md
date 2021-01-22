@@ -32,11 +32,39 @@ tests --&gt; ./runTests
    ## PROCEDURE: Running ./image_process
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+The programm will first load an image using the library "OpenCV".
+The loaded image is transformed to a square image of a size of power of two.
+It will also load a sinusoidal image to have a good representation of the Fourier transform on an image. 
+It will then calculate the 2D fast Fourier transform on both images and display them in three windows containing the real part, imaginary part and amplitude. 
+The three windows are the follow:
 
+ - Original image (imaginary part should be black)
+ - Representation of the Fourier transformation, for a nicer representation, we bring the low frequencies from the corners to the center
+ - Re-transformed image (should be the same as the original image)
+ 
+Between each windows you will have to press any key to display the next window.
+
+You are then asked to choose between four filters that can be applied on the representation of the fourier transform:
+
+ 1) Select only the low frequencies, represented by a circle in the center, it will blur the image.
+    The user will have to choose the radius of the circle.
+    It is given by the percentage of the size of the image.
+
+ 2) Select only the high frequencies, represented by erasing a circle in the center of the fourier transform.
+    The user will have to choose the radius of the circle.
+    It is given by the percentage of the size of the image.
+
+ 3) Select only a band between low and high frequencies.
+    The user will choose two radius to create two circles, it will select only a band between these two circles.
+    The radius are given by the percentage of the size of the image.
+
+ 4) Select only very low and very high frequencies.
+    The user will choose two radius to create two circles, it will erase the band between these two circles.
+    The radius are given by the percentage of the size of the image.
 
 When you start the main program, you will be prompted with a display of the chosen picture.
 
-You will have to press space in order to display the  Fourier transformation of the image.
+You will have to press space in order to display the Fourier transformation of the image.
 
 
 
