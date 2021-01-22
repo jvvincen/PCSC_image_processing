@@ -198,14 +198,22 @@ We can see that it detects the edges.
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 We implemented the following tests.
+
 **image_convolution**
 We tested the function convolve a 3x3 filter on a 3x3 image and by calculation by the hand the expected result and comparing it to the output.
+
 **is_In_Bounds**
 We tested if the function isInBounds was able to recognize if some coordonates were in bounds or not for the zero padding.
 
 **get_Intensity**
 We created an image with our image class, modified the pixel (10,10) with the function set_pixel_intensity and used the function get_intensity to see if we obtain the modified intensity value of the same pixel.
 By this test, we tried both set_pixel_intensity and get_intensity.
+
+**FFT2D**
+We created a random image of a power of 2 size represented by an array, transformed it with the 2D fast Fourier transform and transformed it again with the negative fft. We wanted to see if at the end of both transformation we got back to the original array.
+
+**blur**
+We created a random image represented by an array and add the low pass filter. We then looked if the points at the corner of the image were erased.
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
    ## To Do's and perspective
