@@ -52,7 +52,7 @@ TEST(FFTcalculTest, FFT2D)
     FFTcalcul::FFT2D(n,n,FRe,FIm,fRe2,fIm2,true);
 
     for (int i=1;i<n*n*3;i++) {
-        EXPECT_EQ(round(fRe[i]), round(fRe2[i]));
+        EXPECT_EQ(round(fRe[i]), round(fRe2[i])); // Transformed array should be the same as the original
     }
 }
 
