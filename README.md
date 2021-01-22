@@ -34,12 +34,12 @@ tests --&gt; ./runTests
 
 # Fourier transform
 
-The program will first load an image using the library "OpenCV".
+The programm will first load an image using the library "OpenCV".
 The loaded image is transformed to a square image of a size of power of two.
 
 It will also load a sinusoidal image to have a good representation of the Fourier transform on an image. 
 It will then calculate the 2D fast Fourier transform on both images and display them in three windows containing the real part, imaginary part and amplitude. 
-The three windows are as follow:
+The three windows are the follow:
 
  - Original image (imaginary part should be black)
  - Representation of the Fourier transformation, for a nicer representation, we bring the low frequencies from the corners to the center
@@ -47,12 +47,12 @@ The three windows are as follow:
  
 Between each windows you will have to press any key to display the next window.
 
-The sinusolidal image with its transform. You can see that only one frequence in the real part is non-zero.
+The sinusolidal image with its transform and as we see, only one frequence in the real part is non-zero.
 
 <img src="/pics/sinus - Re-transformed - (Real, Imaginary, Amplitude).png" alt="square image" width="600"/>
 <img src="/pics/sinus - Transformed - (Real, Imaginary, Amplitude).png" alt="square image" width="600"/>
 
-An original squared image with its Fourier transform.
+An original squared image with its Fourier transform
 
 <img src="/pics/256.png - Untransformed - (Real, Imaginary, Amplitude).png" alt="square image" width="600"/>
 <img src="/pics/256.png - Transformed - (Real, Imaginary, Amplitude).png" alt="square image" width="600"/>
@@ -97,9 +97,11 @@ You are then asked to choose between four filters that can be applied on the rep
     <img src="/pics/Transformed with a band erased - (Original, Real part filtered, Transformed).png" alt="square image" width="600"/>
 
 
-# Histograms, edge detection and noise reducer
+# Juliette
 
-The image of Lena is displayed is in color with OpenCv.
+The image of Lena is displayed is in color.
+
+
 
 <img src="/pics/lena.png" alt="Lena color" width="400"/>
 
@@ -208,6 +210,9 @@ By this test, we tried both set_pixel_intensity and get_intensity.
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
    ## To Do's and perspective
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+- Use nicer blur like Gaussian filter to have less distortion in the blury image.
+
 - Use a tclap implementation in order to allow the use of user defined options.
 
 - Check if the filter applied by fourier and by convolution produce the same result.
