@@ -34,12 +34,12 @@ tests --&gt; ./runTests
 
 # Fourier transform
 
-The programm will first load an image using the library "OpenCV".
+The program will first load an image using the library "OpenCV".
 The loaded image is transformed to a square image of a size of power of two.
 
 It will also load a sinusoidal image to have a good representation of the Fourier transform on an image. 
 It will then calculate the 2D fast Fourier transform on both images and display them in three windows containing the real part, imaginary part and amplitude. 
-The three windows are the follow:
+The three windows are as follow:
 
  - Original image (imaginary part should be black)
  - Representation of the Fourier transformation, for a nicer representation, we bring the low frequencies from the corners to the center
@@ -47,12 +47,12 @@ The three windows are the follow:
  
 Between each windows you will have to press any key to display the next window.
 
-The sinusolidal image with its transform and as we see, only one frequence in the real part is non-zero.
+The sinusolidal image with its transform. You can see that only one frequence in the real part is non-zero.
 
 <img src="/pics/sinus - Re-transformed - (Real, Imaginary, Amplitude).png" alt="square image" width="600"/>
 <img src="/pics/sinus - Transformed - (Real, Imaginary, Amplitude).png" alt="square image" width="600"/>
 
-An original squared image with its Fourier transform
+An original squared image with its Fourier transform.
 
 <img src="/pics/256.png - Untransformed - (Real, Imaginary, Amplitude).png" alt="square image" width="600"/>
 <img src="/pics/256.png - Transformed - (Real, Imaginary, Amplitude).png" alt="square image" width="600"/>
@@ -97,11 +97,9 @@ You are then asked to choose between four filters that can be applied on the rep
     <img src="/pics/Transformed with a band erased - (Original, Real part filtered, Transformed).png" alt="square image" width="600"/>
 
 
-# Juliette
+# Histograms, edge detection and noise reducer
 
-The image of Lena is displayed is in color.
-
-
+The image of Lena is displayed is in color with OpenCv.
 
 <img src="/pics/lena.png" alt="Lena color" width="400"/>
 
